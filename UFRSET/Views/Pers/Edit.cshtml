@@ -1,0 +1,49 @@
+﻿@model UFRSET.Models.Per
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Per</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PerId" />
+            <div class="form-group">
+                <label asp-for="NomPer" class="control-label"></label>
+                <input asp-for="NomPer" class="form-control" />
+                <span asp-validation-for="NomPer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specialite" class="control-label"></label>
+                <input asp-for="Specialite" class="form-control" />
+                <span asp-validation-for="Specialite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartementId" class="control-label"></label>
+                <select asp-for="DepartementId" class="form-control" asp-items="ViewBag.DepartementId"></select>
+                <span asp-validation-for="DepartementId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceId" class="control-label"></label>
+                <select asp-for="ServiceId" class="form-control" asp-items="ViewBag.ServiceId"></select>
+                <span asp-validation-for="ServiceId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
